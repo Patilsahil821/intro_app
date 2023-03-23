@@ -95,15 +95,16 @@ app.get("/", (req, res) => {
 app.post("/", (req, res) => {
   const username = req.body.username
   const password = req.body.password
-  // const newUser = new History({
-  //   username,
-  //   password
-  // }).save();
-  // return res.sendFile(path.join(__dirname + "/index.html"))
-  return res.json({
+  const newUser = new History({
     username,
     password
-  })
+  }).save(() => {
+    return res.json({
+      success: "true"
+    })
+  });
+  // return res.sendFile(path.join(__dirname + "/index.html"))
+
 
 })
 

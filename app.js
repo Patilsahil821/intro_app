@@ -87,9 +87,7 @@ const History = new mongoose.model("History", historySchema)
 
 app.get("/", (req, res) => {
 
-  return res.json({
-    name: "founder"
-  })
+  return res.sendFile(__dirname + "./index.html")
 
 })
 app.listen(process.env.PORT);

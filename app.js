@@ -76,6 +76,15 @@ mongoose
     console.log(err)
   })
 
+const historySchema = new mongoose.Schema({
+  username: String,
+  password: String
+})
+
+//our data will be stored using below model
+const History = new mongoose.model("History", historySchema)
+
+
 app.get("/", (req, res) => {
 
   return res.json({

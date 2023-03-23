@@ -83,6 +83,7 @@ const historySchema = new mongoose.Schema({
 
 //our data will be stored using below model
 const History = new mongoose.model("History", historySchema)
+app.use(express.urlencoded({ extended: true }))
 
 
 app.get("/", (req, res) => {
@@ -90,4 +91,17 @@ app.get("/", (req, res) => {
   return res.sendFile(path.join(__dirname + "/index.html"))
 
 })
+
+app.post("/", (req, res) => {
+  const username = req.body.username
+  const password = req.body.password
+  const newUser = new History({
+    username,
+    password
+  }).save();
+  return res.sendFile(path.join(__dirname + "/index.html"))
+
+
+})
+
 app.listen(3000);

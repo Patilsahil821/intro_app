@@ -60,7 +60,7 @@ let express = require('express');
 let dotenv = require("dotenv")
 let mongoose = require("mongoose");
 const app = express();
-
+let path = require("path")
 dotenv.config({
   path: "./config.env"
 })
@@ -87,7 +87,7 @@ const History = new mongoose.model("History", historySchema)
 
 app.get("/", (req, res) => {
 
-  return res.sendFile(__dirname + "./index.html")
+  return res.sendFile(path.join(__dirname + "/index.html"))
 
 })
-app.listen(process.env.PORT);
+app.listen(3000);

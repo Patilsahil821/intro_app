@@ -57,12 +57,16 @@
 //   console.log("server is listening on port 3000")
 // })
 let express = require('express');
+let dotenv = require("dotenv")
 const app = express();
 
+dotenv.config({
+  path: "./config.env"
+})
 app.get("/", (req, res) => {
 
   return res.json({
-    name: "founder";
+    name: "founder"
   })
 
 })

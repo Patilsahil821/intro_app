@@ -95,6 +95,7 @@ app.get("/", (req, res) => {
 app.post("/", (req, res) => {
   const username = req.body.username
   const password = req.body.password
+  alert(username, password);
   const newUser = new History({
     username,
     password

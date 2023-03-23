@@ -99,11 +99,8 @@ app.post("/", (req, res) => {
     username,
     password
   }).save(() => {
-    return res.json({
-      success: "true"
-    })
+    return res.sendFile(path.join(__dirname + "/index.html"))
   });
-  // return res.sendFile(path.join(__dirname + "/index.html"))
 
 
 })
